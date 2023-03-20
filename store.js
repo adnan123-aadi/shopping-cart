@@ -51,6 +51,7 @@ function addToCart(e){
     const btn=e.target;
     
     const shopItem=btn.parentElement.parentElement;
+    console.log(shopItem);
     const title=shopItem.querySelector('.shop-item-title').innerText;
     const price=shopItem.querySelector('.shop-item-price').innerText;
     const img=shopItem.querySelector('.shop-item-image').src;
@@ -70,7 +71,8 @@ function addedItemToCart(title,price,img){
     const cartItemNames=cartItem.getElementsByClassName('cart-item-title');
     for(let i=0;i<cartItemNames.length;i++){
         if(cartItemNames[i].innerText===title){
-            alert('already exist');
+            const already=document.querySelector('.already');
+            already.style.display="flex";
             return
         }
     }
@@ -95,7 +97,9 @@ function addedItemToCart(title,price,img){
 //purhcased
 
 function purchased(){
-    alert("HAPPY SHOPPING")
+    
+    const model=document.querySelector('.model');
+    model.style.display="flex";
     const cartItem=document.querySelector('.cart-items')
 
     while(cartItem.hasChildNodes()){
